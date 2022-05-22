@@ -1,24 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import banner from "../../images/banner.png";
 
 const Banner = () => {
   return (
-    <div
-      class="hero min-h-screen"
-      style={{
-        "background-image":
-          "url(https://api.lorem.space/image/fashion?w=1000&h=800)",
-      }}
-    >
-      <div class="hero-overlay bg-opacity-60"></div>
-      <div class="hero-content text-center text-neutral-content">
-        <div class="max-w-md">
-          <h1 class="mb-5 text-5xl font-bold">Hello there</h1>
-          <p class="mb-5">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+    <div className="hero min-h-screen pt-12">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="lg:w-2/4">
+          <img src={banner} alt="banner" className="w-96 ls:w-full" />
+        </div>
+        <div className="lg:w-7/12">
+          <h1 className="text-6xl mb-4 font-bold text-neutral">
+            Start your dream Business with
+            <span className="text-accent"> Us today</span>
+          </h1>
+          <p className="pt-6 pb-9 text-2xl font-medium text-info">
+            We are a computer parts manufacturer. Buy our quality products and
+            grow your business.
           </p>
-          <button class="btn btn-primary">Get Started</button>
+          <button className="btn btn-accent mr-3.5 text-white btn-md lg:btn-lg">
+            Get Started
+          </button>
+          <button className="btn btn-outline border-2 btn-secondary text-white btn-md lg:btn-lg">
+            <Link to="/log-in">Log In</Link>
+          </button>
         </div>
       </div>
     </div>

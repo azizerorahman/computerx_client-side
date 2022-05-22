@@ -4,7 +4,7 @@ import NavBar from "./Pages/Shared/NavBar";
 
 function App() {
   return (
-    <div className="max-w-7xl mx-auto px-12">
+    <div className="lg:w-11/12 mx-auto lg:px-10 px-5">
       <NavBar></NavBar>
       <Home />
     </div>

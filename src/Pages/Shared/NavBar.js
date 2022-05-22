@@ -5,9 +5,9 @@ import logoText from "../../images/logo-text.png";
 
 const NavBar = () => {
   return (
-    <div className="navbar px-0 bg-base-100">
+    <div className="navbar px-0 py-6 bg-base-100">
       <div className="navbar-start lg:hidden">
-        <Link to="/">
+        <Link className="font-semibold" to="/">
           <img src={logoText} alt="logo" />
         </Link>
       </div>
@@ -34,13 +34,19 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <Link to="/">Home</Link>
+              <Link className="font-semibold" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link className="font-semibold" to="/blogs">
+                Blogs
+              </Link>
             </li>
             <li>
-              <Link to="/my-portfolio">My Portfolio</Link>
+              <Link className="font-semibold" to="/my-portfolio">
+                My Portfolio
+              </Link>
             </li>
           </ul>
         </div>
@@ -49,41 +55,57 @@ const NavBar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <Link to="/">Home</Link>
+              <Link className="font-semibold" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link className="font-semibold" to="/blogs">
+                Blogs
+              </Link>
             </li>
             <li>
-              <Link to="/blogs">Blogs</Link>
+              <Link className="font-semibold" to="/blogs">
+                Blogs
+              </Link>
             </li>
             <li>
-              <Link to="/my-portfolio">My Portfolio</Link>
+              <Link className="font-semibold" to="/my-portfolio">
+                My Portfolio
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <Link to="/">
+        <Link className="font-semibold" to="/">
           <img src={logo} alt="logo" />
         </Link>
       </div>
       <div className="navbar-end flex-none hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="font-semibold" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/blogs">Blogs</Link>
+            <Link className="font-semibold" to="/blogs">
+              Blogs
+            </Link>
           </li>
           <li>
-            <Link to="/my-portfolio">My Portfolio</Link>
+            <Link className="font-semibold" to="/my-portfolio">
+              My Portfolio
+            </Link>
           </li>
           <li>
-            <Link to="/my-portfolio">My Portfolio</Link>
+            <Link className="font-semibold" to="/my-portfolio">
+              My Portfolio
+            </Link>
           </li>
         </ul>
-        <div className="avatar">
+        <div className="avatar pr-4">
           <div className="w-12 rounded-full">
             <img
               src="https://api.lorem.space/image/face?hash=92310"
