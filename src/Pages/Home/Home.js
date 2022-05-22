@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "./Banner";
+import ContactUs from "./ContactUs";
 import JoinUs from "./JoinUs";
 import Parts from "./Parts";
 import Review from "./Review";
@@ -13,6 +14,7 @@ const Home = () => {
       <Summary></Summary>
       <JoinUs></JoinUs>
       <Review></Review>
+      <ContactUs></ContactUs>
     </div>
   );
 };
