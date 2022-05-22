@@ -10,7 +10,7 @@ const Parts = () => {
         <h3 className="tracking-widest text-center text-secondary text-xs uppercase mb-3 font-bold">
           Computer Parts
         </h3>
-        <h2 className="mb-6 font-bold text-neutral text-center lg:text-5xl text-xl lg:px-20">
+        <h2 className="mb-6 font-bold text-neutral text-center lg:text-5xl text-2xl lg:px-20">
           Check out some of our awesome products with creative ideas and great
           design.
         </h2>
