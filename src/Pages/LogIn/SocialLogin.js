@@ -3,7 +3,7 @@ import { BsGoogle } from "react-icons/bs";
 
 const SocialLogin = ({ signInWithGoogle, googleError }) => {
   return (
-    <div>
+    <div className="mb-2">
       <button
         onClick={() => signInWithGoogle()}
         className="border-2 btn btn-outline btn-secondary w-full"

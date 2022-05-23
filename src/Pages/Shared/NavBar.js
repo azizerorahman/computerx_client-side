@@ -2,8 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
 import logoText from "../../images/logo-text.png";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const NavBar = () => {
+  const [user] = useAuthState(auth);
+
+  const logOut = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
+
   return (
     <header className="bg-[#f3f3fa]">
       <div className="navbar py-6 lg:w-11/12 mx-auto lg:px-10 px-5">
@@ -49,20 +59,44 @@ const NavBar = () => {
                   My Portfolio
                 </Link>
               </li>
+              {user ? (
+                <>
+                  <h3 className="font-bold text-center text-neutral text-xl lg:pr-5 lg:py-0 py-3">
+                    {user?.displayName}
+                  </h3>
+                  <button
+                    onClick={logOut}
+                    className="font-semibold btn btn-outline border-2 btn-accent px-5"
+                  >
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link className="font-semibold" to="/log-in">
+                      Log In
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      className="font-semibold btn btn-secondary px-5 text-white"
+                      to="/sign-up"
+                    >
+                      Sign Up
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
         <div className="navbar-start hidden lg:flex">
           <div className="flex-none">
-            <ul className="menu menu-horizontal p-0">
+            <ul className="menu menu-horizontal gap-2 p-0">
               <li>
                 <Link className="font-semibold" to="/">
                   Home
-                </Link>
-              </li>
-              <li>
-                <Link className="font-semibold" to="/blogs">
-                  Blogs
                 </Link>
               </li>
               <li>
@@ -84,36 +118,39 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-end flex-none hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            <li>
-              <Link className="font-semibold" to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="font-semibold" to="/blogs">
-                Blogs
-              </Link>
-            </li>
-            <li>
-              <Link className="font-semibold" to="/my-portfolio">
-                My Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link className="font-semibold" to="/my-portfolio">
-                My Portfolio
-              </Link>
-            </li>
+          <ul className="menu menu-horizontal items-center gap-2 p-0">
+            {user ? (
+              <>
+                <h3 className="font-bold text-neutral text-xl pr-5">
+                  {user?.displayName}
+                </h3>
+                <li>
+                  <button
+                    onClick={logOut}
+                    className="font-semibold btn btn-outline border-2 btn-accent px-5"
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link className="font-semibold" to="/log-in">
+                    Log In
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="font-semibold btn btn-secondary px-5 text-white"
+                    to="/sign-up"
+                  >
+                    Sign Up
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
-          <div className="avatar pr-4">
-            <div className="w-12 rounded-full">
-              <img
-                src="https://api.lorem.space/image/face?hash=92310"
-                alt="user"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </header>
