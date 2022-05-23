@@ -19,8 +19,10 @@ const ContactUs = () => {
             <div className="flex items-center gap-5">
               <img className="h-11 w-11" src={pin} alt="pin" />
               <div>
-                <h3 className="font-semibold text-2xl text-neutral">Address</h3>
-                <p className="text-info text-lg">
+                <h3 className="font-semibold lg:text-2xl text-lg text-neutral">
+                  Address
+                </h3>
+                <p className="text-info lg:text-lg">
                   Moonshine St. 14/05 Light City, London
                 </p>
               </div>
@@ -28,20 +30,24 @@ const ContactUs = () => {
             <div className="flex items-center gap-5">
               <img className="h-11 w-11" src={phone} alt="phone" />
               <div>
-                <h3 className="font-semibold text-2xl text-neutral">Phone</h3>
-                <p className="text-info text-lg">00 (123) 456 78 90</p>
+                <h3 className="font-semibold lg:text-2xl text-lg  text-neutral">
+                  Phone
+                </h3>
+                <p className="text-info lg:text-lg">00 (123) 456 78 90</p>
               </div>
             </div>
             <div className="flex items-center gap-5">
               <img className="h-11 w-11" src={email} alt="email" />
               <div>
-                <h3 className="font-semibold text-2xl text-neutral">E-mail</h3>
-                <p className="text-info text-lg">admin@computerx.com</p>
+                <h3 className="font-semibold lg:text-2xl text-lg  text-neutral">
+                  E-mail
+                </h3>
+                <p className="text-info lg:text-lg">admin@computerx.com</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="lg:w-7/12">
+        <div className="lg:w-7/12 lg:pt-0 pt-10">
           <img src={contactUs} alt="join_us" />
         </div>
       </div>
