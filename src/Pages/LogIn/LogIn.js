@@ -1,8 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
+import "./LogIn.css";
+import SocialLogin from "./SocialLogin";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   const {
@@ -14,7 +20,10 @@ const LogIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  if (loading) {
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+  if (loading || googleLoading) {
     return <Loading>h-screen</Loading>;
   }
 
@@ -24,15 +33,24 @@ const LogIn = () => {
     signInWithEmailAndPassword(email, password);
   };
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center">
-      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    <div className="bg-[#f3f3fa] flex items-center justify-center lg:py-20">
+      <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mt-5 mb-16 lg:m-0">
         <div className="card-body">
+          <h2 className="mb-1 font-bold text-neutral text-center text-3xl">
+            Log In
+          </h2>
+          <h3 className="text-center text-info mb-4">
+            Don't have an account?{" "}
+            <Link className="link link-secondary" to="/sign-up">
+              Sign Up
+            </Link>
+          </h3>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-control">
               <input
                 type="email"
                 placeholder=" &#xf0e0;  Email Address"
-                className="input input-bordered input-icon"
+                className="input input-bordered input-icon text-base"
                 {...register("email", {
                   required: {
                     value: true,
@@ -60,8 +78,8 @@ const LogIn = () => {
             <div className="form-control">
               <input
                 type="password"
-                placeholder=" &#xf023;  Password"
-                className="input input-bordered input-icon"
+                placeholder=" &#xf070;  Password"
+                className="input input-bordered input-icon text-base"
                 {...register("password", {
                   required: {
                     value: true,
@@ -98,7 +116,11 @@ const LogIn = () => {
               </label>
             </div>
             <div className="form-control mt-6">
-              <input className="btn btn-primary" type="submit" value="Login" />
+              <input
+                className="btn btn-accent text-white"
+                type="submit"
+                value="Log In"
+              />
               <label className="flex justify-center">
                 {error && (
                   <span className="pt-2 label-text-alt text-error">
@@ -118,6 +140,11 @@ const LogIn = () => {
               </label>
             </div>
           </form>
+          <div className="divider">OR</div>
+          <SocialLogin
+            signInWithGoogle={signInWithGoogle}
+            googleError={googleError}
+          ></SocialLogin>
         </div>
       </div>
     </div>
