@@ -5,8 +5,9 @@ import {
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../Shared/Loading";
 import SocialLogin from "./SocialLogin";
 
@@ -25,15 +26,22 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+  const navigate = useNavigate();
+
+  const [token] = useToken(user || googleUser);
+
   if (loading || googleLoading || updating) {
     return <Loading>h-screen</Loading>;
+  }
+
+  if (token) {
+    navigate("/");
   }
 
   const onSubmit = async (data) => {
     const { name, email, password } = data;
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
-    console.log("update done");
   };
   return (
     <div className="bg-[#f3f3fa] flex items-center justify-center lg:py-20">

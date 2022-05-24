@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.png";
-import logoText from "../../images/logo-text.png";
+import logoMobile from "../../images/logo_mobile.svg";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
@@ -19,7 +19,7 @@ const NavBar = () => {
       <div className="navbar py-6 lg:w-11/12 mx-auto lg:px-10 px-5">
         <div className="navbar-start lg:hidden">
           <Link className="font-semibold" to="/">
-            <img src={logoText} alt="logo" />
+            <img src={logoMobile} alt="logo" />
           </Link>
         </div>
         <div className="navbar-end lg:hidden">
@@ -109,6 +109,13 @@ const NavBar = () => {
                   My Portfolio
                 </Link>
               </li>
+              {user && (
+                <li>
+                  <Link className="font-semibold" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
   useSignInWithEmailAndPassword,
@@ -8,7 +8,8 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 import "./LogIn.css";
 import SocialLogin from "./SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 const LogIn = () => {
   const {
@@ -23,14 +24,25 @@ const LogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const [token] = useToken(user || googleUser);
+
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [token, from, navigate]);
+
   if (loading || googleLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const onSubmit = (data) => {
     const { email, password } = data;
     signInWithEmailAndPassword(email, password);
-    console.log(user);
   };
   return (
     <div className="bg-[#f3f3fa] flex items-center justify-center lg:py-20">

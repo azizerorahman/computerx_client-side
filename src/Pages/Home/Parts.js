@@ -3,7 +3,8 @@ import useParts from "../../hooks/useParts";
 import Part from "./Part";
 
 const Parts = () => {
-  const [parts] = useParts();
+  const [parts] = useParts([]);
+
   return (
     <div className="lg:w-11/12 mx-auto lg:px-10 px-5 py-10">
       <div className="pb-8">
