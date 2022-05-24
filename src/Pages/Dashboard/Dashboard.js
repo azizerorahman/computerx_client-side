@@ -5,9 +5,9 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="drawer drawer-mobile lg:w-11/12 mx-auto lg:px-10 px-5 py-5">
+    <div className="drawer drawer-mobile lg:w-11/12 mx-auto lg:px-10 lg:py-5">
       <input id="drawer" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col relative pt-4 pl-3">
+      <div className="drawer-content flex flex-col relative lg:pt-4 pt-20 lg:pl-3 px-7 lg:px-0">
         <Outlet />
         <label
           htmlFor="drawer"
@@ -18,7 +18,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="drawer" className="drawer-overlay"></label>
-        <ul className="menu p-4 overflow-y-auto w-64 bg-base-100 text-base-content bg-inherit">
+        <ul className="menu p-4 overflow-y-auto w-64 bg-base-100 text-base-content lg:bg-inherit">
           <li>
             <Link className="font-semibold" to="/dashboard">
               My Profile

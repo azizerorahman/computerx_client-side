@@ -1,10 +1,12 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const EditProfileModal = ({ serEditProfile, id, refetch }) => {
+const EditProfileModal = ({ serEditProfile, dbUser, refetch }) => {
+  const { _id, education, location, phone, linkedinUrl } = dbUser;
+
   const {
     register,
     formState: { errors },
@@ -18,7 +20,7 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
       phone: data.phone,
       linkedinUrl: data.linkedinUrl,
     };
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`http://localhost:5000/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -37,6 +39,11 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
         }
       });
   };
+
+  const [newEducation, setNewEducation] = useState(education);
+  const [newLocation, setNewLocation] = useState(location);
+  const [newPhone, setNewPhone] = useState(phone);
+  const [newLinkedinUrl, setNewLinkedinUrl] = useState(linkedinUrl);
 
   return (
     <div>
@@ -58,10 +65,15 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                 <span className="label-text">Education</span>
               </label>
               <input
+                value={newEducation}
                 type="text"
                 placeholder="Grade or University"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
-                {...register("education")}
+                {...register("education", {
+                  onChange: (e) => {
+                    setNewEducation(e.target.value);
+                  },
+                })}
               />
             </div>
             <div className="form-control">
@@ -69,10 +81,15 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                 <span className="label-text">Location</span>
               </label>
               <input
+                value={newLocation}
                 type="text"
                 placeholder="City Name"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
-                {...register("location")}
+                {...register("location", {
+                  onChange: (e) => {
+                    setNewLocation(e.target.value);
+                  },
+                })}
               />
             </div>
             <div className="form-control">
@@ -80,6 +97,7 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                 <span className="label-text">Phone</span>
               </label>
               <input
+                value={newPhone}
                 type="text"
                 placeholder="001234567890"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
@@ -88,6 +106,9 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                     value: /^\+?(0|[0-9]\d*)$/,
                     message:
                       "*Please enter a valid phone number without space or dash",
+                  },
+                  onChange: (e) => {
+                    setNewPhone(e.target.value);
                   },
                 })}
               />
@@ -104,6 +125,7 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                 <span className="label-text">LinkedIn Profile Link</span>
               </label>
               <input
+                value={newLinkedinUrl}
                 type="text"
                 placeholder="linkedin.com/in/username"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
@@ -112,6 +134,9 @@ const EditProfileModal = ({ serEditProfile, id, refetch }) => {
                     value:
                       /[(http(s)?)://(www.)?a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/,
                     message: "*Please enter a valid link",
+                  },
+                  onChange: (e) => {
+                    setNewLinkedinUrl(e.target.value);
                   },
                 })}
               />

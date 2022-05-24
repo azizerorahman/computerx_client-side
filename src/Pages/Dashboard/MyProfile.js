@@ -48,25 +48,25 @@ const MyProfile = () => {
       <h3 className="tracking-widest text-secondary text-xs uppercase mb-3 font-bold">
         My Profile
       </h3>
-      <div className="flex gap-16 my-2">
+      <div className="flex flex-col lg:flex-row gap-2 lg:gap-16 my-2">
         <h2 className="font-bold text-neutral lg:text-5xl text-2xl">
           {user?.displayName}
         </h2>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center lg:gap-5 gap-4">
           <img className="h-11 w-11" src={email} alt="email" />
           <div>
-            <h3 className="font-semibold lg:text-2xl text-lg  text-neutral">
+            <h3 className="font-semibold lg:text-2xl text-base text-neutral">
               E-mail
             </h3>
-            <p className="text-info lg:text-lg">{user?.email}</p>
+            <p className="text-info text-sm lg:text-lg">{user?.email}</p>
           </div>
         </div>
       </div>
       <div className="overflow-x-auto mt-4">
-        <table className="table w-10/12">
+        <table className="table lg:w-10/12">
           <tbody>
             <tr>
-              <th className="w-80">Education</th>
+              <th className="lg:w-80">Education</th>
               <td>{education}</td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@ const MyProfile = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center mt-6 ">
+      <div className="flex justify-center mt-6 w-10/12">
         <label
           onClick={() => serEditProfile(_id)}
           htmlFor="edit-profile-modal"
@@ -97,7 +97,7 @@ const MyProfile = () => {
       {editProfile && (
         <EditProfileModal
           serEditProfile={serEditProfile}
-          id={_id}
+          dbUser={dbUser}
           refetch={refetch}
         />
       )}
