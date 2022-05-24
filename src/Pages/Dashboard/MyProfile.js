@@ -15,7 +15,11 @@ const MyProfile = () => {
   const navigate = useNavigate();
 
   // get user data from database
-  const { data: dbUser, isLoading } = useQuery(["dbUser"], () =>
+  const {
+    data: dbUser,
+    isLoading,
+    refetch,
+  } = useQuery(["dbUser"], () =>
     fetch(`http://localhost:5000/user/${user.email}`, {
       method: "GET",
       headers: {
@@ -59,30 +63,30 @@ const MyProfile = () => {
         </div>
       </div>
       <div className="overflow-x-auto mt-4">
-        <table className="table w-full">
+        <table className="table w-10/12">
           <tbody>
             <tr>
-              <th className="w-56">Education</th>
-              <td>Education</td>
+              <th className="w-80">Education</th>
+              <td>{education}</td>
             </tr>
             <tr>
               <th>Location</th>
-              <td>Hart Hagerty</td>
+              <td>{location}</td>
             </tr>
             <tr>
               <th>Phone Number</th>
-              <td>Brice Swyre</td>
+              <td>{phone}</td>
             </tr>
             <tr>
               <th>LinkedIn Profile Link</th>
-              <td>Brice Swyre</td>
+              <td>{linkedinUrl}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div className="flex justify-center mt-6 ">
         <label
-          onClick={() => serEditProfile(dbUser)}
+          onClick={() => serEditProfile(_id)}
           htmlFor="edit-profile-modal"
           className="btn btn-secondary modal-button text-white"
         >
@@ -91,7 +95,11 @@ const MyProfile = () => {
         </label>
       </div>
       {editProfile && (
-        <EditProfileModal serEditProfile={serEditProfile} dbUser={dbUser} />
+        <EditProfileModal
+          serEditProfile={serEditProfile}
+          id={_id}
+          refetch={refetch}
+        />
       )}
     </div>
   );

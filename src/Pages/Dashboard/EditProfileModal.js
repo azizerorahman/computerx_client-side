@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const EditProfileModal = ({ serEditProfile, id }) => {
+const EditProfileModal = ({ serEditProfile, id, refetch }) => {
   const {
     register,
     formState: { errors },
@@ -29,6 +29,7 @@ const EditProfileModal = ({ serEditProfile, id }) => {
       .then((res) => res.json())
       .then((response) => {
         if (response.modifiedCount === 1) {
+          refetch();
           toast.success("Successfully Updated!");
           serEditProfile(null);
         } else {
