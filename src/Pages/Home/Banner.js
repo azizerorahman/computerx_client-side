@@ -21,7 +21,7 @@ const Banner = () => {
               grow your business.
             </p>
             <button className="btn btn-accent mr-3.5 text-white btn-md lg:btn-lg">
-              Get Started
+              <Link to="/sign-up">Get Started</Link>
             </button>
             <button className="btn btn-outline border-2 btn-secondary btn-md lg:btn-lg">
               <Link to="/log-in">Log In</Link>

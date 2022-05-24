@@ -31,7 +31,7 @@ const SignUp = () => {
   const [token] = useToken(user || googleUser);
 
   if (loading || googleLoading || updating) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   if (token) {
