@@ -1,21 +1,60 @@
-import React from "react";
+import { signOut } from "firebase/auth";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
-import usePart from "../../hooks/usePart";
-import Abc from "./Abc";
+import Loading from "../Shared/Loading";
 
 const Purchase = () => {
   const [user] = useAuthState(auth);
-
-  const [part] = usePart();
-  const { name, image_url, min_order } = part;
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  const {
+    data: part,
+    isLoading: partLoading,
+    // refetch,
+  } = useQuery(["part"], () =>
+    fetch(`http://localhost:5000/purchase/${id}`).then((res) => res.json())
+  );
+
+  const { data: dbUser, isLoading: dbUserLoading } = useQuery(["abc"], () =>
+    fetch(`http://localhost:5000/user/${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    }).then((res) => {
+      if (res.status === 401 || res.status === 403) {
+        signOut(auth);
+        localStorage.removeItem("accessToken");
+        navigate("/");
+      }
+      return res.json();
+    })
+  );
+
+  const { phone, location } = dbUser;
+  const [newPhone, setNewPhone] = useState(phone);
+  const [newLocation, setNewLocation] = useState(location);
+
+  if (dbUserLoading) {
+    return <Loading></Loading>;
+  }
+
+  if (partLoading) {
+    return <Loading></Loading>;
+  }
+
+  const { name, image_url, min_order } = part;
 
   const onSubmit = (data) => {
     console.log(data);
@@ -59,6 +98,7 @@ const Purchase = () => {
                 <span className="label-text">Phone Number</span>
               </label>
               <input
+                value={newPhone}
                 type="text"
                 placeholder="001234567890"
                 className="input focus:outline-offset-0 input-bordered text-base pb-0.5 font-medium"
@@ -71,6 +111,9 @@ const Purchase = () => {
                     value: /^\+?(0|[0-9]\d*)$/,
                     message:
                       "*Please enter a valid phone number without space or dash",
+                  },
+                  onChange: (e) => {
+                    setNewPhone(e.target.value);
                   },
                 })}
               />
@@ -92,12 +135,16 @@ const Purchase = () => {
                 <span className="label-text">Address</span>
               </label>
               <textarea
+                value={newLocation}
                 className="textarea focus:outline-offset-0 textarea-bordered w-full text-base pb-0.5 font-medium"
                 placeholder="Moonshine St. 14/05 Light City, London, United Kingdom"
                 {...register("address", {
                   required: {
                     value: true,
                     message: "*Enter your address",
+                  },
+                  onChange: (e) => {
+                    setNewLocation(e.target.value);
                   },
                 })}
               ></textarea>
@@ -109,7 +156,6 @@ const Purchase = () => {
                 )}
               </label>
             </div>
-            <Abc min_order={min_order}></Abc>
             <div className="form-control mt-6">
               <input
                 className="btn btn-accent text-white"

@@ -3,9 +3,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const AddReview = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -30,13 +33,20 @@ const AddReview = () => {
       },
       body: JSON.stringify(newReview),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 401 || res.status === 403) {
+          signOut(auth);
+          localStorage.removeItem("accessToken");
+          navigate("/");
+        }
+        return res.json();
+      })
       .then((insertedData) => {
         if (insertedData.insertedId) {
-          toast.success(" added successfully");
+          toast.success("Review Successfully Added!");
           reset();
         } else {
-          toast.error("Failed to add the doctor");
+          toast.error("Failed to add Review");
         }
       });
   };
@@ -52,7 +62,7 @@ const AddReview = () => {
           </label>
           <textarea
             type="text"
-            placeholder="Write a review text here. . ."
+            placeholder="Write a review text here"
             className="textarea focus:outline-offset-0 textarea-bordered text-base font-medium"
             {...register("review", {
               required: {

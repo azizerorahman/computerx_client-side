@@ -29,6 +29,11 @@ const Dashboard = () => {
               Add a Review
             </Link>
           </li>
+          <li>
+            <Link className="font-semibold" to="/dashboard/my-orders">
+              My Orders
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
