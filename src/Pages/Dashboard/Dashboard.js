@@ -25,8 +25,8 @@ const Dashboard = () => {
             </Link>
           </li>
           <li>
-            <Link className="font-semibold" to="/dashboard">
-              My Profile
+            <Link className="font-semibold" to="/dashboard/add-review">
+              Add a Review
             </Link>
           </li>
         </ul>

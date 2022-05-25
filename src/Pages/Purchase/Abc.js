@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Abc = ({ min_order }) => {
-  const [amount, setAmount] = useState(min_order);
-  console.log(amount);
+  // const [amount, setAmount] = useState(min_order);
+  // console.log(amount);
   return (
     <div>
       <div className="form-control">
@@ -16,7 +16,6 @@ const Abc = ({ min_order }) => {
           <input
             type="text"
             placeholder="Search…"
-            value={amount}
             className="input input-bordered focus:outline-offset-0 w-full"
           />
           <button className="btn btn-square text-3xl pb-1.5 text-white">

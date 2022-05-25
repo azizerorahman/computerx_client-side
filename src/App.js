@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AddReview from "./Pages/Dashboard/AddReview";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import Home from "./Pages/Home/Home";
@@ -38,6 +39,7 @@ function App() {
           }
         >
           <Route index element={<MyProfile />}></Route>
+          <Route path="/dashboard/add-review" element={<AddReview />}></Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

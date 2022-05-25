@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
@@ -30,12 +30,14 @@ const SignUp = () => {
 
   const [token] = useToken(user || googleUser);
 
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, navigate]);
+
   if (loading || googleLoading || updating) {
     return <Loading></Loading>;
-  }
-
-  if (token) {
-    navigate("/");
   }
 
   const onSubmit = async (data) => {
