@@ -13,18 +13,18 @@ const Blogs = () => {
       </h2>
       <div
         tabindex="0"
-        class="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <input type="checkbox" class="peer" />
-        <div class="collapse-title font-bold text-xl">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title font-bold text-xl">
           How will you improve the performance of a React Application?
         </div>
-        <div class="collapse-content lg:text-lg font-medium text-info">
+        <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
             Methods Of improving and optimizing performance of a React
             Application are:
           </p>
-          <ul class="pl-6">
+          <ul className="pl-6">
             <li className="flex items-center gap-4">
               <FontAwesomeIcon icon={faAngleRight} />
               <p>
@@ -53,18 +53,18 @@ const Blogs = () => {
       </div>
       <div
         tabindex="0"
-        class="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <input type="checkbox" class="peer" />
-        <div class="collapse-title font-bold text-xl">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title font-bold text-xl">
           What are the different ways to manage a state in a React application?
         </div>
-        <div class="collapse-content lg:text-lg font-medium text-info">
+        <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
             There are mainly four ways to manage a state in a React application.
             These are:
           </p>
-          <ul class="pl-6">
+          <ul className="pl-6">
             <li>
               1. Local State -{" "}
               <span className="font-normal">
@@ -93,13 +93,13 @@ const Blogs = () => {
       </div>
       <div
         tabindex="0"
-        class="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <input type="checkbox" class="peer" />
-        <div class="collapse-title font-bold text-xl">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title font-bold text-xl">
           How does prototypical inheritance work?
         </div>
-        <div class="collapse-content lg:text-lg font-medium text-info">
+        <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
             In JavaScript, sharing objects properties between them works like a
             chain, this is prototypical chain. All JavaScript objects follow the
@@ -111,10 +111,10 @@ const Blogs = () => {
       </div>
       <div
         tabindex="0"
-        class="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <input type="checkbox" class="peer" />
-        <div class="collapse-title font-bold text-xl">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title font-bold text-xl">
           Why you do not set the state directly in React. For example, if you
           have{" "}
           <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
@@ -130,7 +130,7 @@ const Blogs = () => {
           </code>
           ?
         </div>
-        <div class="collapse-content lg:text-lg font-medium text-info">
+        <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
             If I use{" "}
             <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
@@ -152,20 +152,20 @@ const Blogs = () => {
       </div>
       <div
         tabindex="0"
-        class="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
+        className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
-        <input type="checkbox" class="peer" />
-        <div class="collapse-title font-bold text-xl">
+        <input type="checkbox" className="peer" />
+        <div className="collapse-title font-bold text-xl">
           You have an array of products. Each product has a name, price,
           description, etc. How will you implement a search to find products by
           name?
         </div>
-        <div class="collapse-content lg:text-lg font-medium text-info">
+        <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
             Here we used JavaScript to solve the problem. If we find products by
             name, we will be ger array of result products. Here is the code:
           </p>
-          <div class="mockup-code my-3 min-w-full">
+          <div className="mockup-code my-3 min-w-full">
             <pre data-prefix="1">
               <code>
                 const searchProducts = (products, searchText) =&#62; &#123;

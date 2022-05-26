@@ -6,6 +6,7 @@ import AddReview from "./Pages/Dashboard/AddReview";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile";
+import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home";
 import LogIn from "./Pages/LogIn/LogIn";
 import RequireAuth from "./Pages/LogIn/RequireAuth";
@@ -14,7 +15,6 @@ import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
 import NotFound from "./Pages/Shared/NotFound";
-import Extra from "./Pages/Extra";
 
 function App() {
   return (
@@ -44,9 +44,9 @@ function App() {
           <Route index element={<MyProfile />}></Route>
           <Route path="/dashboard/add-review" element={<AddReview />}></Route>
           <Route path="/dashboard/my-orders" element={<MyOrders />}></Route>
+          <Route path="/dashboard/payment/:id" element={<Payment />}></Route>
         </Route>
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/extra" element={<Extra />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 const OrderFrom = ({ part }) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-  const { min_order, quantity } = part;
+  const { name, min_order, quantity, image_url, price } = part;
   const [counter, setCounter] = useState(min_order);
 
   const {
@@ -32,9 +32,12 @@ const OrderFrom = ({ part }) => {
     const newReview = {
       name: user.displayName,
       email: user.email,
+      part_name: name,
+      part_image: image_url,
       delivery_address: delivery_address,
       delivery_phone: delivery_phone,
       amount: amount,
+      total_price: price * counter,
     };
 
     fetch("http://localhost:5000/orders", {
@@ -106,14 +109,14 @@ const OrderFrom = ({ part }) => {
           })}
         />
         <label className="label pt-0">
-          {errors.phone?.type === "required" && (
+          {errors.delivery_phone?.type === "required" && (
             <span className="label-text-alt text-error pt-1">
-              {errors.phone.message}
+              {errors.delivery_phone.message}
             </span>
           )}
-          {errors.phone?.type === "pattern" && (
+          {errors.delivery_phone?.type === "pattern" && (
             <span className="label-text-alt text-error pt-1">
-              {errors.phone.message}
+              {errors.delivery_phone.message}
             </span>
           )}
         </label>
@@ -128,14 +131,14 @@ const OrderFrom = ({ part }) => {
           {...register("delivery_address", {
             required: {
               value: true,
-              message: "*Enter your address",
+              message: "*Enter your delivery address",
             },
           })}
         ></textarea>
         <label className="label pt-0">
-          {errors.address?.type === "required" && (
+          {errors.delivery_address?.type === "required" && (
             <span className="label-text-alt text-error">
-              {errors.address.message}
+              {errors.delivery_address.message}
             </span>
           )}
         </label>
@@ -209,6 +212,13 @@ const OrderFrom = ({ part }) => {
             </span>
           )}
         </label>
+      </div>
+      <div className="divider m-0"></div>
+      <div className="flex justify-between font-bold text-info">
+        <p>Total</p>
+        <p>
+          $ <span className="text-secondary">{price * counter}</span>
+        </p>
       </div>
       <div className="form-control mt-6">
         <input
