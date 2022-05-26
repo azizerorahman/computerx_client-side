@@ -35,10 +35,10 @@ const MyProfile = () => {
     })
   );
 
-  const [editProfile, serEditProfile] = useState(null);
+  const [editProfile, setEditProfile] = useState(null);
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading>h-screen</Loading>;
   }
 
   const { _id, education, location, phone, linkedinUrl } = dbUser;
@@ -86,7 +86,7 @@ const MyProfile = () => {
       </div>
       <div className="flex justify-center mt-6 w-10/12">
         <label
-          onClick={() => serEditProfile(_id)}
+          onClick={() => setEditProfile(_id)}
           htmlFor="edit-profile-modal"
           className="btn btn-secondary modal-button text-white"
         >
@@ -96,7 +96,7 @@ const MyProfile = () => {
       </div>
       {editProfile && (
         <EditProfileModal
-          serEditProfile={serEditProfile}
+          setEditProfile={setEditProfile}
           dbUser={dbUser}
           refetch={refetch}
         />

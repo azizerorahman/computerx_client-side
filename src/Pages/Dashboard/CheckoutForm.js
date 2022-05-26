@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
+import Loading from "../Shared/Loading";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
@@ -8,8 +9,9 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [cardSuccess, setCardSuccess] = useState("");
   const [transactionId, setTransactionId] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const { name, total_price, email } = order;
+  const { _id, name, total_price, email } = order;
 
   useEffect(() => {
     fetch("http://localhost:5000/create-payment-intent", {
@@ -28,6 +30,10 @@ const CheckoutForm = ({ order }) => {
       });
   }, [total_price]);
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -39,13 +45,14 @@ const CheckoutForm = ({ order }) => {
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
 
     setCardError(error?.message || "");
     setCardSuccess("");
+    setLoading(true);
 
     // confirm payment
     const { paymentIntent, error: intentError } =
@@ -61,11 +68,28 @@ const CheckoutForm = ({ order }) => {
 
     if (intentError) {
       setCardError(intentError?.message);
-      // setProcessing(false);
+      setLoading(false);
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
       setCardSuccess("Congratulation! Successfully Paid.");
+
+      const payment = {
+        order: _id,
+        transactionId: paymentIntent.id,
+      };
+      fetch(`http://localhost:5000/orders/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setLoading(false);
+        });
     }
   };
   return (
@@ -91,7 +115,7 @@ const CheckoutForm = ({ order }) => {
         <button
           className="btn rounded btn-success btn-sm px-6 mb-1 text-white"
           type="submit"
-          disabled={!stripe || !clientSecret}
+          disabled={!stripe || !clientSecret || cardSuccess}
         >
           Pay
         </button>

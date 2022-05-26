@@ -37,7 +37,7 @@ const SignUp = () => {
   }, [token, navigate]);
 
   if (loading || googleLoading || updating) {
-    return <Loading></Loading>;
+    return <Loading>h-screen</Loading>;
   }
 
   const onSubmit = async (data) => {

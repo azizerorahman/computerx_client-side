@@ -1,9 +1,14 @@
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   return (
     <div className="drawer drawer-mobile lg:w-11/12 mx-auto lg:px-10 lg:py-5">
       <input id="drawer" type="checkbox" className="drawer-toggle" />
@@ -24,16 +29,40 @@ const Dashboard = () => {
               My Profile
             </Link>
           </li>
-          <li>
-            <Link className="font-semibold" to="/dashboard/add-review">
-              Add a Review
-            </Link>
-          </li>
-          <li>
-            <Link className="font-semibold" to="/dashboard/my-orders">
-              My Orders
-            </Link>
-          </li>
+          {!admin && (
+            <>
+              <li>
+                <Link className="font-semibold" to="/dashboard/add-review">
+                  Add a Review
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold" to="/dashboard/my-orders">
+                  My Orders
+                </Link>
+              </li>
+            </>
+          )}
+
+          {admin && (
+            <>
+              <li>
+                <Link className="font-semibold" to="/dashboard/manage-orders">
+                  Manage All Orders
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold" to="/dashboard/add-part">
+                  Add New Part
+                </Link>
+              </li>
+              <li>
+                <Link className="font-semibold" to="/dashboard/make-admin">
+                  Make Admin
+                </Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

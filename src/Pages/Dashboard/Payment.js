@@ -25,22 +25,22 @@ const Payment = () => {
   );
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading>h-screen</Loading>;
   }
 
   const { name, part_name, amount, total_price } = order;
 
   return (
-    <div class="hero">
-      <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100 mr-3">
-        <div class="card-body">
+    <div className="hero">
+      <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100 mr-3">
+        <div className="card-body">
           <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-4 font-bold">
             Payment
           </h3>
           <h2 className="mb-1 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
             Hi! {name},
           </h2>
-          <h2 class="text-center lg:text-left lg:text-2xl">
+          <h2 className="text-center lg:text-left lg:text-2xl">
             Confirm your order by payment, you are paying for{" "}
             <span className="text-accent">{part_name}.</span>
           </h2>

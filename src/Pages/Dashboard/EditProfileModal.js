@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-const EditProfileModal = ({ serEditProfile, dbUser, refetch }) => {
+const EditProfileModal = ({ setEditProfile, dbUser, refetch }) => {
   const { _id, education, location, phone, linkedinUrl } = dbUser;
 
   const {
@@ -33,7 +33,7 @@ const EditProfileModal = ({ serEditProfile, dbUser, refetch }) => {
         if (response.modifiedCount === 1) {
           refetch();
           toast.success("Successfully Updated!");
-          serEditProfile(null);
+          setEditProfile(null);
         } else {
           toast.error("Change Information to Update");
         }
@@ -51,7 +51,7 @@ const EditProfileModal = ({ serEditProfile, dbUser, refetch }) => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <label
-            onClick={() => serEditProfile(null)}
+            onClick={() => setEditProfile(null)}
             className="btn btn-sm btn-ghost text-2xl absolute right-2 top-2"
           >
             <FontAwesomeIcon icon={faXmark} />

@@ -12,7 +12,7 @@ const Purchase = () => {
   );
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading>h-screen</Loading>;
   }
 
   const { name, image_url, min_order, quantity, description } = part;

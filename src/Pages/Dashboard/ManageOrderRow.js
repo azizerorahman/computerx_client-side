@@ -1,17 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const OrderRow = ({ order }) => {
+const ManageOrderRow = ({ order, setDeleteOrder }) => {
   const {
     _id,
     part_image,
     part_name,
-    delivery_address,
-    delivery_phone,
-    amount,
     total_price,
     paid,
     transactionId,
+    name,
+    email,
   } = order;
   return (
     <tr>
@@ -35,21 +33,28 @@ const OrderRow = ({ order }) => {
         </div>
       </td>
       <td>
-        {delivery_address}
+        {name}
         <br />
-        <span className="badge badge-ghost badge-sm">{delivery_phone}</span>
+        <span className="badge badge-ghost badge-sm">{email}</span>
       </td>
-      <td>{amount}</td>
-      <th>
-        {!paid && (
-          <Link to={`/dashboard/payment/${_id}`}>
-            <button className="btn btn-accent btn-xs text-white">Pay</button>
-          </Link>
+      <td>
+        {paid ? (
+          <span className="text-success">Paid</span>
+        ) : (
+          <span className="text-info">Pending</span>
         )}
-        {paid && <span className="text-success">Paid</span>}
-      </th>
+      </td>
+      <td>
+        <label
+          onClick={() => setDeleteOrder(order)}
+          htmlFor="delete-order-modal"
+          className="btn btn-secondary modal-button text-white btn-xs bg-error"
+        >
+          Delete Order
+        </label>
+      </td>
     </tr>
   );
 };
 
-export default OrderRow;
+export default ManageOrderRow;
