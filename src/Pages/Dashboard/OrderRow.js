@@ -25,7 +25,7 @@ const OrderRow = ({ order, refetch }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `http://localhost:5000/orders/${id}`;
+            const url = `https://computerx.herokuapp.com/orders/${id}`;
             fetch(url, {
               method: "DELETE",
               headers: {

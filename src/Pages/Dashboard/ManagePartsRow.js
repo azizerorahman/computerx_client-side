@@ -15,7 +15,7 @@ const ManagePartsRow = ({ part, refetch }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `http://localhost:5000/parts/${id}`;
+            const url = `https://computerx.herokuapp.com/parts/${id}`;
             fetch(url, {
               method: "DELETE",
               headers: {

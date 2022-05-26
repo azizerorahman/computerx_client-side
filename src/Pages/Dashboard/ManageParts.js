@@ -10,7 +10,7 @@ const ManageParts = () => {
     isLoading,
     refetch,
   } = useQuery("parts", () =>
-    fetch("http://localhost:5000/parts/", {
+    fetch("https://computerx.herokuapp.com/parts/", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
