@@ -13,7 +13,7 @@ const MyOrders = () => {
 
   // get user orders from database
   const { data: orders, isLoading } = useQuery(["orders"], () =>
-    fetch(`http://localhost:5000/orders/${user.email}`, {
+    fetch(`https://computerx.herokuapp.com/orders/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
