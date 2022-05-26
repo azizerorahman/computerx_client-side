@@ -8,9 +8,7 @@ const Purchase = () => {
   const { id } = useParams();
 
   const { data: part, isLoading } = useQuery(["part"], () =>
-    fetch(`https://computerx.herokuapp.com/purchase/${id}`).then((res) =>
-      res.json()
-    )
+    fetch(`http://localhost:5000/purchase/${id}`).then((res) => res.json())
   );
 
   if (isLoading) {

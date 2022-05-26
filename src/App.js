@@ -7,6 +7,7 @@ import AddReview from "./Pages/Dashboard/AddReview";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import MakeAdmin from "./Pages/Dashboard/MakeAdmin";
 import ManageOrders from "./Pages/Dashboard/ManageOrders";
+import ManageParts from "./Pages/Dashboard/ManageParts";
 import MyOrders from "./Pages/Dashboard/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile";
 import Payment from "./Pages/Dashboard/Payment";
@@ -71,6 +72,14 @@ function App() {
             element={
               <RequireAdmin>
                 <AddPart />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/manage-part"
+            element={
+              <RequireAdmin>
+                <ManageParts />
               </RequireAdmin>
             }
           ></Route>

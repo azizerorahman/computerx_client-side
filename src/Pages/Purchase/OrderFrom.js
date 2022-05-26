@@ -40,7 +40,7 @@ const OrderFrom = ({ part }) => {
       total_price: price * counter,
     };
 
-    fetch("https://computerx.herokuapp.com/orders", {
+    fetch("http://localhost:5000/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

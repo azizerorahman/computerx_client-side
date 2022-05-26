@@ -57,6 +57,11 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
+                <Link className="font-semibold" to="/dashboard/manage-part">
+                  Manage Parts
+                </Link>
+              </li>
+              <li>
                 <Link className="font-semibold" to="/dashboard/make-admin">
                   Make Admin
                 </Link>

@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import { toast } from "react-toastify";
 
-const OrderRow = ({ order }) => {
+const OrderRow = ({ order, refetch }) => {
   const {
     _id,
     part_image,
@@ -13,6 +16,41 @@ const OrderRow = ({ order }) => {
     paid,
     transactionId,
   } = order;
+
+  const handleDeleteItem = (id, part_name) => {
+    confirmAlert({
+      message: "Are you sure you want to delete it?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            // send updated data to server
+            const url = `http://localhost:5000/orders/${id}`;
+            fetch(url, {
+              method: "DELETE",
+              headers: {
+                "content-type": "application/json",
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.deletedCount > 0) {
+                  toast.success(`Order of ${part_name} deleted.`);
+                  refetch();
+                }
+              });
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            return;
+          },
+        },
+      ],
+    });
+  };
   return (
     <tr>
       <td>
@@ -47,6 +85,16 @@ const OrderRow = ({ order }) => {
           </Link>
         )}
         {paid && <span className="text-success">Paid</span>}
+      </th>
+      <th>
+        {!paid && (
+          <button
+            onClick={() => handleDeleteItem(_id, part_name)}
+            className="btn btn-error btn-xs text-white"
+          >
+            Cancel
+          </button>
+        )}
       </th>
     </tr>
   );

@@ -12,8 +12,12 @@ const MyOrders = () => {
   const navigate = useNavigate();
 
   // get user orders from database
-  const { data: orders, isLoading } = useQuery(["orders"], () =>
-    fetch(`https://computerx.herokuapp.com/orders/${user.email}`, {
+  const {
+    data: orders,
+    isLoading,
+    refetch,
+  } = useQuery(["orders"], () =>
+    fetch(`http://localhost:5000/orders/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -34,18 +38,22 @@ const MyOrders = () => {
   return (
     <div className="overflow-x-auto w-full">
       <table className="table w-full">
-        {/* <!-- head --> */}
         <thead>
           <tr>
             <th>Parts Name</th>
             <th>Contact Info</th>
             <th>Order Amount</th>
-            <th></th>
+            <th>Pay</th>
+            <th>Cancel</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <OrderRow key={order._id} order={order}></OrderRow>
+            <OrderRow
+              key={order._id}
+              order={order}
+              refetch={refetch}
+            ></OrderRow>
           ))}
         </tbody>
       </table>

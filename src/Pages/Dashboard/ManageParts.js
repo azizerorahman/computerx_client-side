@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import useParts from "../../hooks/useParts";
 import Loading from "../Shared/Loading";
-import UserRow from "./UserRow";
+import ManagePartsRow from "./ManagePartsRow";
 
-const MakeAdmin = () => {
+const ManageParts = () => {
   const {
-    data: users,
+    data: parts,
     isLoading,
     refetch,
-  } = useQuery("users", () =>
-    fetch("http://localhost:5000/user", {
+  } = useQuery("parts", () =>
+    fetch("http://localhost:5000/parts/", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -19,25 +20,26 @@ const MakeAdmin = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
-      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-4 font-bold">
-        Make Admin
-      </h3>
-      <h2 className="mb-3 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
-        Total Users: {users.length}
-      </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
             <tr>
               <th>Name</th>
+              <th>Price</th>
+              <th>Amount</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <UserRow key={user._id} user={user} refetch={refetch}></UserRow>
+            {parts.map((part) => (
+              <ManagePartsRow
+                key={part._id}
+                part={part}
+                refetch={refetch}
+              ></ManagePartsRow>
             ))}
           </tbody>
         </table>
@@ -46,4 +48,4 @@ const MakeAdmin = () => {
   );
 };
 
-export default MakeAdmin;
+export default ManageParts;

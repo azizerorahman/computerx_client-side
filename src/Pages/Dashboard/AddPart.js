@@ -17,7 +17,7 @@ const AddPart = () => {
     };
 
     // send data to server
-    fetch("https://computerx.herokuapp.com/parts", {
+    fetch("http://localhost:5000/parts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -20,7 +20,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["dbUser"], () =>
-    fetch(`https://computerx.herokuapp.com/user/${user.email}`, {
+    fetch(`http://localhost:5000/user/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

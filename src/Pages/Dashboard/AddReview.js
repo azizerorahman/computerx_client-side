@@ -25,7 +25,7 @@ const AddReview = () => {
       rating: parseInt(rating),
     };
 
-    fetch("https://computerx.herokuapp.com/reviews", {
+    fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

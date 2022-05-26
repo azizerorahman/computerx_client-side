@@ -6,11 +6,11 @@ const usePart = () => {
 
   const [part, setPart] = useState([]);
   useEffect(() => {
-    const url = `https://computerx.herokuapp.com/purchase/${id}`;
+    const url = `http://localhost:5000/purchase/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));
-  }, [id]);
+  }, [id, part]);
 
   return [part, setPart];
 };

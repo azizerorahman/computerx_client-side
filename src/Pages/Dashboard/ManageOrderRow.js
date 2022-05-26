@@ -2,7 +2,6 @@ import React from "react";
 
 const ManageOrderRow = ({ order, setDeleteOrder }) => {
   const {
-    _id,
     part_image,
     part_name,
     total_price,
