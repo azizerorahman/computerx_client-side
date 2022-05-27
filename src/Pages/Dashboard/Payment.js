@@ -1,6 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../Shared/Loading";
@@ -13,10 +13,8 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { id } = useParams();
 
-  const url = `https://computerx.herokuapp.com/orders/${id}`;
-
   const { data: order, isLoading } = useQuery(["order", id], () =>
-    fetch(url, {
+    fetch(`https://computerx.herokuapp.com/payment/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -29,8 +27,6 @@ const Payment = () => {
   }
 
   const { name, part_name, amount, total_price } = order;
-
-  console.log(name, amount, total_price);
 
   return (
     <div className="hero">
