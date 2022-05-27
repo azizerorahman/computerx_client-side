@@ -4,7 +4,6 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const DeleteOrderModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
-  console.log(deleteOrder);
   const { _id, part_name, amount, name } = deleteOrder;
 
   const handleDelete = () => {
