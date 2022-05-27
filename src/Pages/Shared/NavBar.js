@@ -59,6 +59,11 @@ const NavBar = () => {
                   My Portfolio
                 </Link>
               </li>
+              <li>
+                <Link className="font-semibold" to="/dashboard">
+                  Dashboard
+                </Link>
+              </li>
               {user ? (
                 <>
                   <h3 className="font-bold text-center text-neutral text-xl lg:pr-5 lg:py-0 py-3">

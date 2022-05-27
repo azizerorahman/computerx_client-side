@@ -12,7 +12,7 @@ const Blogs = () => {
         Questions &#38; Answers!
       </h2>
       <div
-        tabindex="0"
+        tabIndex="0"
         className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
         <input type="checkbox" className="peer" />
@@ -52,7 +52,7 @@ const Blogs = () => {
         </div>
       </div>
       <div
-        tabindex="0"
+        tabIndex="0"
         className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
         <input type="checkbox" className="peer" />
@@ -92,7 +92,7 @@ const Blogs = () => {
         </div>
       </div>
       <div
-        tabindex="0"
+        tabIndex="0"
         className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
         <input type="checkbox" className="peer" />
@@ -110,7 +110,7 @@ const Blogs = () => {
         </div>
       </div>
       <div
-        tabindex="0"
+        tabIndex="0"
         className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
         <input type="checkbox" className="peer" />
@@ -151,7 +151,7 @@ const Blogs = () => {
         </div>
       </div>
       <div
-        tabindex="0"
+        tabIndex="0"
         className="collapse lg:px-3 mx-auto mb-3 w-10/12 collapse-arrow border border-base-300 bg-base-100 rounded-box"
       >
         <input type="checkbox" className="peer" />

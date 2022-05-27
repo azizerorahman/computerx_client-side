@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import logoWhite from "../../images/logo_white.svg";
+import { toast } from "react-toastify";
 
 const Footer = () => {
   const {
@@ -11,7 +12,7 @@ const Footer = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    toast.success(`Thanks ${data.email} for subscribing.`);
   };
   return (
     <footer className="bg-[rgb(52,63,82)]">
