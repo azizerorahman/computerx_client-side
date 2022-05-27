@@ -7,7 +7,11 @@ import OrderFrom from "./OrderFrom";
 const Purchase = () => {
   const { id } = useParams();
 
-  const { data: part, isLoading } = useQuery(["part"], () =>
+  const {
+    data: part,
+    isLoading,
+    refetch,
+  } = useQuery(["part"], () =>
     fetch(`https://computerx.herokuapp.com/purchase/${id}`).then((res) =>
       res.json()
     )
@@ -47,7 +51,7 @@ const Purchase = () => {
             {name}
           </h2>
           <p className="mb-3 text-info">{description}</p>
-          <OrderFrom part={part}></OrderFrom>
+          <OrderFrom part={part} refetch={refetch}></OrderFrom>
         </div>
       </div>
     </div>

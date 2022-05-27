@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 
-const OrderFrom = ({ part }) => {
+const OrderFrom = ({ part, refetch }) => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
-  const { name, min_order, quantity, image_url, price } = part;
+  const { _id, name, min_order, quantity, image_url, price } = part;
   const [counter, setCounter] = useState(min_order);
 
   const {
@@ -40,6 +40,11 @@ const OrderFrom = ({ part }) => {
       total_price: price * counter,
     };
 
+    const updatedQuantity = quantity - amount;
+    const updatedPart = {
+      quantity: updatedQuantity,
+    };
+
     fetch("https://computerx.herokuapp.com/orders", {
       method: "POST",
       headers: {
@@ -58,8 +63,22 @@ const OrderFrom = ({ part }) => {
       })
       .then((insertedData) => {
         if (insertedData.insertedId) {
-          toast.success("Successfully Added to Order!");
-          reset();
+          fetch(`https://computerx.herokuapp.com/parts/${_id}`, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(updatedPart),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.modifiedCount > 0) {
+                refetch();
+                toast.success("Successfully Added to Order!");
+                reset();
+              }
+            });
         } else {
           toast.error("Failed to add as Order");
         }
