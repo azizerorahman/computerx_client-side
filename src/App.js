@@ -14,6 +14,7 @@ import Payment from "./Pages/Dashboard/Payment";
 import Home from "./Pages/Home/Home";
 import LogIn from "./Pages/LogIn/LogIn";
 import RequireAdmin from "./Pages/LogIn/RequireAdmin";
+import RequireUser from "./Pages/LogIn/RequireUser";
 import RequireAuth from "./Pages/LogIn/RequireAuth";
 import SignUp from "./Pages/LogIn/SignUp";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
@@ -48,8 +49,22 @@ function App() {
           }
         >
           <Route index element={<MyProfile />}></Route>
-          <Route path="/dashboard/add-review" element={<AddReview />}></Route>
-          <Route path="/dashboard/my-orders" element={<MyOrders />}></Route>
+          <Route
+            path="/dashboard/add-review"
+            element={
+              <RequireUser>
+                <AddReview />
+              </RequireUser>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/my-orders"
+            element={
+              <RequireUser>
+                <MyOrders />
+              </RequireUser>
+            }
+          ></Route>
           <Route path="/dashboard/payment/:id" element={<Payment />}></Route>
           <Route
             path="/dashboard/make-admin"
