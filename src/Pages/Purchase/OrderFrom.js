@@ -149,6 +149,7 @@ const OrderFrom = ({ part }) => {
         </label>
         <div className="input-group">
           <button
+            disabled={counter <= min_order}
             type="button"
             onClick={decreaseCounter}
             className="btn btn-square text-3xl pb-1.5 text-white"
@@ -183,6 +184,7 @@ const OrderFrom = ({ part }) => {
             })}
           />
           <button
+            disabled={counter >= quantity}
             type="button"
             onClick={increaseCounter}
             className="btn btn-square text-3xl pb-1.5 text-white"
