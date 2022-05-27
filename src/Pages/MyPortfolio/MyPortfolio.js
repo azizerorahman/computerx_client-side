@@ -1,5 +1,4 @@
 import {
-  faArrowTurnDown,
   faAt,
   faCircleArrowRight,
   faSchool,
