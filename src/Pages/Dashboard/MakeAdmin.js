@@ -21,13 +21,13 @@ const MakeAdmin = () => {
   }
   return (
     <div>
-      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-4 font-bold">
+      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-2 lg:mb-4 font-bold">
         Make Admin
       </h3>
       <h2 className="mb-3 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
         Total Users: {users.length}
       </h2>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mb-4">
         <table className="table w-full">
           <thead>
             <tr>

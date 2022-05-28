@@ -4,7 +4,7 @@ import "react-confirm-alert/src/react-confirm-alert.css";
 import { toast } from "react-toastify";
 
 const ManagePartsRow = ({ part, refetch }) => {
-  const { _id, name, price, quantity } = part;
+  const { _id, name, price, quantity, min_order } = part;
 
   // delete button
   const handleDeleteItem = (id, name) => {
@@ -44,8 +44,9 @@ const ManagePartsRow = ({ part, refetch }) => {
   return (
     <tr>
       <th>{name}</th>
-      <td>{price}</td>
-      <td>{quantity}</td>
+      <td className="text-center">{min_order}</td>
+      <td className="text-center">{price}</td>
+      <td className="text-center">{quantity}</td>
       <td className="text-center">
         <button
           onClick={() => handleDeleteItem(_id, name)}

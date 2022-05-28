@@ -42,7 +42,7 @@ const AddPart = () => {
 
   return (
     <div>
-      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-4 font-bold">
+      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-2 lg:mb-4 font-bold">
         Add a Part
       </h3>
       <h2 className="mb-6 font-bold text-neutral text-center lg:text-left lg:text-3xl text-xl">

@@ -38,7 +38,7 @@ const MyProfile = () => {
   const [editProfile, setEditProfile] = useState(null);
 
   if (isLoading) {
-    return <Loading></Loading>;
+    return <Loading>h-screen</Loading>;
   }
 
   const { _id, education, location, phone, linkedinUrl } = dbUser;

@@ -52,9 +52,12 @@ const AddReview = () => {
   };
   return (
     <div className="pr-2">
-      <h3 className="tracking-widest text-secondary text-xs uppercase mb-3 font-bold">
+      <h3 className="tracking-widest text-secondary text-center lg:text-left text-xs uppercase lg:mb-4 mb-2 font-bold">
         Add a new review
       </h3>
+      <h2 className="mb-3 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
+        Write about Us
+      </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
           <label className="label">

@@ -21,16 +21,16 @@ const ManageOrders = () => {
   const [deleteOrder, setDeleteOrder] = useState(null);
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   return (
     <div>
-      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-4 font-bold">
+      <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-2 lg:mb-4 font-bold">
         Manage all orders
       </h3>
-      <h2 className="mb-3 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
-        Total Users: {orders.length}
+      <h2 className="mb-6 font-bold text-neutral text-center lg:text-left lg:text-4xl text-2xl">
+        Total Orders: {orders.length}
       </h2>
       <div className="overflow-x-auto">
         <table className="table w-full">

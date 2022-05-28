@@ -9,7 +9,6 @@ const CheckoutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [cardSuccess, setCardSuccess] = useState("");
   const [transactionId, setTransactionId] = useState("");
-  const [loading, setLoading] = useState(false);
 
   const { _id, name, total_price, email } = order;
 
@@ -30,10 +29,6 @@ const CheckoutForm = ({ order }) => {
       });
   }, [total_price]);
 
-  if (loading) {
-    return <Loading></Loading>;
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -52,7 +47,6 @@ const CheckoutForm = ({ order }) => {
 
     setCardError(error?.message || "");
     setCardSuccess("");
-    setLoading(true);
 
     // confirm payment
     const { paymentIntent, error: intentError } =
@@ -68,7 +62,6 @@ const CheckoutForm = ({ order }) => {
 
     if (intentError) {
       setCardError(intentError?.message);
-      setLoading(false);
     } else {
       setCardError("");
       setTransactionId(paymentIntent.id);
@@ -85,11 +78,7 @@ const CheckoutForm = ({ order }) => {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
         body: JSON.stringify(payment),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setLoading(false);
-        });
+      }).then((res) => res.json());
     }
   };
   return (

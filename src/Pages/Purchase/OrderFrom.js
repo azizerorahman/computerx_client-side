@@ -5,9 +5,11 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
+import useAdmin from "../../hooks/useAdmin";
 
 const OrderFrom = ({ part, refetch }) => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   const navigate = useNavigate();
   const { _id, name, min_order, quantity, image_url, price } = part;
   const [counter, setCounter] = useState(min_order);
@@ -244,7 +246,7 @@ const OrderFrom = ({ part, refetch }) => {
       <div className="form-control mt-6">
         <input
           disabled={
-            errors.amount?.type === "min" || errors.amount?.type === "max"
+            errors.amount?.type === "min" || errors.amount?.type === "max" || admin
           }
           className="btn btn-accent text-white"
           type="submit"

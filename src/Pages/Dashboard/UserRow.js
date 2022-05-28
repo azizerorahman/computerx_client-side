@@ -25,7 +25,7 @@ const UserRow = ({ user, refetch }) => {
   };
   return (
     <tr>
-      <th>{email}</th>
+      <td className="font-bold text-info">{email}</td>
       <td className="text-center">
         {role === "admin" ? (
           <div className="font-bold  text-accent">Admin</div>
