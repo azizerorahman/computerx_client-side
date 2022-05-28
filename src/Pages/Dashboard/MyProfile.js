@@ -20,7 +20,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["dbUser"], () =>
-    fetch(`https://computerx.herokuapp.com/user/${user.email}`, {
+    fetch(`https://radiant-gorge-88164.herokuapp.com/user/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -38,7 +38,7 @@ const MyProfile = () => {
   const [editProfile, setEditProfile] = useState(null);
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const { _id, education, location, phone, linkedinUrl } = dbUser;
@@ -48,8 +48,8 @@ const MyProfile = () => {
       <h3 className="tracking-widest text-secondary text-xs uppercase mb-3 font-bold">
         My Profile
       </h3>
-      <div className="flex flex-col lg:flex-row gap-2 lg:gap-16 my-2">
-        <h2 className="font-bold text-neutral lg:text-5xl text-2xl">
+      <div className="flex flex-col lg:flex-row gap-3 lg:gap-20 my-2">
+        <h2 className="font-bold text-neutral lg:text-5xl text-3xl">
           {user?.displayName}
         </h2>
         <div className="flex items-center lg:gap-5 gap-4">
@@ -84,7 +84,7 @@ const MyProfile = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center mt-6 w-10/12">
+      <div className="flex justify-center mt-6 w-10/12 mb-6">
         <label
           onClick={() => setEditProfile(_id)}
           htmlFor="edit-profile-modal"

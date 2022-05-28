@@ -20,7 +20,7 @@ const EditProfileModal = ({ setEditProfile, dbUser, refetch }) => {
       phone: data.phone,
       linkedinUrl: data.linkedinUrl,
     };
-    fetch(`https://computerx.herokuapp.com/update/${_id}`, {
+    fetch(`https://radiant-gorge-88164.herokuapp.com/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

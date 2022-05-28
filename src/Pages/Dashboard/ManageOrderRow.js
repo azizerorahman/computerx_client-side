@@ -1,15 +1,34 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-const ManageOrderRow = ({ order, setDeleteOrder }) => {
+const ManageOrderRow = ({ order, setDeleteOrder, refetch }) => {
   const {
+    _id,
     part_image,
     part_name,
     total_price,
-    paid,
+    status,
     transactionId,
     name,
     email,
   } = order;
+
+  const setShippedOrder = () => {
+    fetch(`https://radiant-gorge-88164.herokuapp.com/shipped/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          refetch();
+          toast.success("Part Shipped Successfully");
+        }
+      });
+  };
   return (
     <tr>
       <td>
@@ -21,7 +40,7 @@ const ManageOrderRow = ({ order, setDeleteOrder }) => {
           </div>
           <div>
             <div className="font-bold">{part_name}</div>
-            {paid ? (
+            {status === "pending" ? (
               <div className="text-sm opacity-50">
                 Transaction ID: {transactionId}
               </div>
@@ -32,25 +51,33 @@ const ManageOrderRow = ({ order, setDeleteOrder }) => {
         </div>
       </td>
       <td>
-        {name}
+        <span className="font-medium">{name}</span>
         <br />
         <span className="badge badge-ghost badge-sm">{email}</span>
       </td>
-      <td>
-        {paid ? (
-          <span className="text-success">Paid</span>
-        ) : (
-          <span className="text-info">Pending</span>
-        )}
+      <td className="text-center">
+        {status === "pending" && <span className="text-accent">Pending</span>}
+        {status === "shipped" && <span className="text-accent">Approved</span>}
+        {!status && <span className="text-accent">Unpaid</span>}
       </td>
-      <td>
-        <label
-          onClick={() => setDeleteOrder(order)}
-          htmlFor="delete-order-modal"
-          className="btn btn-secondary modal-button text-white btn-xs bg-error"
-        >
-          Delete Order
-        </label>
+      <td className="text-center">
+        {!status && (
+          <label
+            onClick={() => setDeleteOrder(order)}
+            htmlFor="delete-order-modal"
+            className="btn modal-button text-white btn-xs btn-error"
+          >
+            Delete Order
+          </label>
+        )}
+        {status === "pending" && (
+          <button
+            onClick={setShippedOrder}
+            className="btn btn-secondary modal-button text-white btn-xs"
+          >
+            Shipped
+          </button>
+        )}
       </td>
     </tr>
   );

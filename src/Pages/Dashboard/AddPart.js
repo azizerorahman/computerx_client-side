@@ -25,7 +25,7 @@ const AddPart = () => {
     };
 
     // send data to server
-    fetch("https://computerx.herokuapp.com/parts", {
+    fetch("https://radiant-gorge-88164.herokuapp.com/parts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -216,7 +216,7 @@ const AddPart = () => {
             )}
           </label>
         </div>
-        <div className="form-control mt-6">
+        <div className="form-control my-6">
           <input
             className="btn btn-accent text-white"
             type="submit"

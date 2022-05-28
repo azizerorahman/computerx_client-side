@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
   const { _id, name, total_price, email } = order;
 
   useEffect(() => {
-    fetch("https://computerx.herokuapp.com/create-payment-intent", {
+    fetch("https://radiant-gorge-88164.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -78,7 +78,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://computerx.herokuapp.com/orders/${_id}`, {
+      fetch(`https://radiant-gorge-88164.herokuapp.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

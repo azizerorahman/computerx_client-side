@@ -17,7 +17,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["orders"], () =>
-    fetch(`https://computerx.herokuapp.com/orders/${user.email}`, {
+    fetch(`https://radiant-gorge-88164.herokuapp.com/orders/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -33,7 +33,7 @@ const MyOrders = () => {
   );
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
   return (
     <div className="overflow-x-auto w-full">
@@ -42,7 +42,7 @@ const MyOrders = () => {
           <tr>
             <th>Parts Name</th>
             <th>Contact Info</th>
-            <th>Order Amount</th>
+            <th className="text-center">Order Amount</th>
             <th>Pay</th>
             <th>Cancel</th>
           </tr>

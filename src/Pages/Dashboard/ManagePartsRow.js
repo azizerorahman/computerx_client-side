@@ -15,7 +15,7 @@ const ManagePartsRow = ({ part, refetch }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `https://computerx.herokuapp.com/parts/${id}`;
+            const url = `https://radiant-gorge-88164.herokuapp.com/parts/${id}`;
             fetch(url, {
               method: "DELETE",
               headers: {

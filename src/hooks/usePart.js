@@ -6,7 +6,7 @@ const usePart = () => {
 
   const [part, setPart] = useState([]);
   useEffect(() => {
-    const url = `https://computerx.herokuapp.com/purchase/${id}`;
+    const url = `https://radiant-gorge-88164.herokuapp.com/purchase/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));

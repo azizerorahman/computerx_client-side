@@ -12,7 +12,7 @@ const OrderRow = ({ order, refetch }) => {
     delivery_phone,
     amount,
     total_price,
-    paid,
+    status,
     transactionId,
   } = order;
 
@@ -30,7 +30,7 @@ const OrderRow = ({ order, refetch }) => {
             </div>
             <div>
               <div className="font-bold">{part_name}</div>
-              {paid ? (
+              {status === "pending" ? (
                 <div className="text-sm opacity-50">
                   Transaction ID: {transactionId}
                 </div>
@@ -45,17 +45,17 @@ const OrderRow = ({ order, refetch }) => {
           <br />
           <span className="badge badge-ghost badge-sm">{delivery_phone}</span>
         </td>
-        <td>{amount}</td>
+        <td className="text-center">{amount}</td>
         <th>
-          {!paid && (
+          {!status && (
             <Link to={`/dashboard/payment/${_id}`}>
               <button className="btn btn-accent btn-xs text-white">Pay</button>
             </Link>
           )}
-          {paid && <span className="text-success">Paid</span>}
+          {status === "pending" && <span className="text-success">Paid</span>}
         </th>
         <th>
-          {!paid && (
+          {!status && (
             <label
               onClick={() => setCancelOrder(order)}
               htmlFor="cancel-order-modal"

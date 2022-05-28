@@ -14,7 +14,7 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery(["order", id], () =>
-    fetch(`https://computerx.herokuapp.com/payment/order/${id}`, {
+    fetch(`https://radiant-gorge-88164.herokuapp.com/payment/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -23,7 +23,7 @@ const Payment = () => {
   );
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const { name, part_name, amount, total_price } = order;

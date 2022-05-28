@@ -25,7 +25,7 @@ const AddReview = () => {
       rating: parseInt(rating),
     };
 
-    fetch("https://computerx.herokuapp.com/reviews", {
+    fetch("https://radiant-gorge-88164.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

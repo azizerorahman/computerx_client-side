@@ -45,7 +45,7 @@ const OrderFrom = ({ part, refetch }) => {
       quantity: updatedQuantity,
     };
 
-    fetch("https://computerx.herokuapp.com/orders", {
+    fetch("https://radiant-gorge-88164.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const OrderFrom = ({ part, refetch }) => {
       })
       .then((insertedData) => {
         if (insertedData.insertedId) {
-          fetch(`https://computerx.herokuapp.com/parts/${_id}`, {
+          fetch(`https://radiant-gorge-88164.herokuapp.com/parts/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
