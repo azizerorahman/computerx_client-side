@@ -26,17 +26,17 @@ const Banner = () => {
   };
 
   return (
-    <motion.ul
-      className="container"
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
-
-      <section className="bg-[#f3f3fa]">
-        <div className="hero min-h-screen pt-12 lg:w-11/12 mx-auto lg:px-10 px-5">
-          <div className="hero-content flex-col-reverse lg:flex-row">
+    <section className="bg-[#f3f3fa]">
+      <div className="hero min-h-screen pt-12 lg:w-11/12 mx-auto lg:px-10 px-5">
+        <div>
+          <motion.ul
+            className="container hero-content flex-col-reverse lg:flex-row"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="lg:w-7/12">
+
               <motion.li className="item" variants={item}>
                 <h1 className="lg:text-6xl text-5xl mb-4 font-bold text-neutral">
                   Start your dream Business with
@@ -59,15 +59,14 @@ const Banner = () => {
                 <img src={banner} alt="banner" className="lg:w-96 w-full m-auto" />
               </motion.li>
             </div>
-          </div>
+          </motion.ul>
         </div>
-        <motion.li className="item" variants={item}>
-          <figure>
-            <img src={bannerBottom} alt="banner-bottom" />
-          </figure>
-        </motion.li>
-      </section>
-    </motion.ul>
+      </div>
+      <figure>
+        <img src={bannerBottom} alt="banner-bottom" />
+      </figure>
+    </section>
+
   );
 };
 
