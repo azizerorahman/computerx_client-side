@@ -76,15 +76,15 @@ const Footer = () => {
         </div>
         <div className="w-full mx-auto justify-items-center lg:justify-items-start">
           <span className="footer-title">Get in Touch</span>
-          <p className="text-base font-medium text-center lg:text-left">
+          <p className="text-base text-center lg:text-left">
             Moonshine St. 14/05
             <br />
             Light City, London,
             <br />
             United Kingdom
           </p>
-          <p className="text-base font-medium text-center lg:text-left">
-            admin@computerx.com
+          <p className="text-base text-center lg:text-left">
+            admin@taskie.com
             <br />
             00 (123) 456 78 90
           </p>

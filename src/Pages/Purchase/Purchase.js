@@ -18,7 +18,7 @@ const Purchase = () => {
   );
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const { name, image_url, min_order, quantity, description } = part;

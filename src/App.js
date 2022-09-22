@@ -22,8 +22,22 @@ import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
 import NotFound from "./Pages/Shared/NotFound";
+import Loading from "./Pages/Shared/Loading";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetch("https://radiant-gorge-88164.herokuapp.com/").then(() =>
+      setLoading(false)
+    );
+  }, []);
+
+  // loading spinner
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
       <NavBar></NavBar>
@@ -101,6 +115,7 @@ function App() {
         </Route>
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
+        <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>

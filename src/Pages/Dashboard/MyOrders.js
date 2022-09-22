@@ -35,6 +35,7 @@ const MyOrders = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
       <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-2 lg:mb-4 font-bold">
