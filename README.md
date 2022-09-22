@@ -15,5 +15,5 @@ This is a website of a **Computer Parts Manufacturer**. All of the parts they ma
 
 **[Live Site](https://computerx-zero.web.app/)
  || [Server Side](https://github.com/azizurrahman-zero/computerx_server-side)
- || [Resume](https://drive.google.com/file/d/19IBXBf7c01MchYIkbrcZmL1L_bbl9day/view?usp=sharing)
+ || [Resume](https://drive.google.com/file/d/1XeazEHtsgT1nkpOtzRtG1AOU1zGfQ5bO/view?usp=sharing)
  || [LinkedIn](https://www.linkedin.com/in/azizurrahman-zero/)**
