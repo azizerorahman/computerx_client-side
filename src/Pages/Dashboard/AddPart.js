@@ -25,7 +25,7 @@ const AddPart = () => {
     };
 
     // send data to server
-    fetch("https://radiant-gorge-88164.herokuapp.com/parts", {
+    fetch("https://computerx.onrender.com/parts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

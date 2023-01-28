@@ -1,6 +1,5 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
-import Loading from "../Shared/Loading";
 
 const CheckoutForm = ({ order }) => {
   const stripe = useStripe();
@@ -13,7 +12,7 @@ const CheckoutForm = ({ order }) => {
   const { _id, name, total_price, email } = order;
 
   useEffect(() => {
-    fetch("https://radiant-gorge-88164.herokuapp.com/create-payment-intent", {
+    fetch("https://computerx.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,7 +70,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://radiant-gorge-88164.herokuapp.com/orders/${_id}`, {
+      fetch(`https://computerx.onrender.com/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

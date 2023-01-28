@@ -37,7 +37,7 @@ const LogIn = () => {
   }, [token, from, navigate]);
 
   if (loading || googleLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const onSubmit = (data) => {

@@ -17,7 +17,7 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["orders"], () =>
-    fetch(`https://radiant-gorge-88164.herokuapp.com/orders/${user.email}`, {
+    fetch(`https://computerx.onrender.com/orders/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -35,6 +35,7 @@ const MyOrders = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
       <h3 className="tracking-widest text-center lg:text-left text-secondary text-xs uppercase mb-2 lg:mb-4 font-bold">

@@ -9,7 +9,7 @@ const ManageParts = () => {
     isLoading,
     refetch,
   } = useQuery("parts", () =>
-    fetch("https://radiant-gorge-88164.herokuapp.com/parts/", {
+    fetch("https://computerx.onrender.com/parts/", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

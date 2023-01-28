@@ -7,7 +7,7 @@ const DeleteOrderModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
   const { _id, part_name, amount, name } = deleteOrder;
 
   const handleDelete = () => {
-    fetch(`https://radiant-gorge-88164.herokuapp.com/orders/${_id}`, {
+    fetch(`https://computerx.onrender.com/orders/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

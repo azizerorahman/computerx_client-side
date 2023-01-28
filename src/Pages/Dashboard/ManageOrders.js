@@ -10,7 +10,7 @@ const ManageOrders = () => {
     isLoading,
     refetch,
   } = useQuery("orders", () =>
-    fetch("https://radiant-gorge-88164.herokuapp.com/orders", {
+    fetch("https://computerx.onrender.com/orders", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

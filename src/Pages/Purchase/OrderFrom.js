@@ -47,7 +47,7 @@ const OrderFrom = ({ part, refetch }) => {
       quantity: updatedQuantity,
     };
 
-    fetch("https://radiant-gorge-88164.herokuapp.com/orders", {
+    fetch("https://computerx.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,7 +65,7 @@ const OrderFrom = ({ part, refetch }) => {
       })
       .then((insertedData) => {
         if (insertedData.insertedId) {
-          fetch(`https://radiant-gorge-88164.herokuapp.com/parts/${_id}`, {
+          fetch(`https://computerx.onrender.com/parts/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",
@@ -246,7 +246,9 @@ const OrderFrom = ({ part, refetch }) => {
       <div className="form-control mt-6">
         <input
           disabled={
-            errors.amount?.type === "min" || errors.amount?.type === "max" || admin
+            errors.amount?.type === "min" ||
+            errors.amount?.type === "max" ||
+            admin
           }
           className="btn btn-accent text-white"
           type="submit"

@@ -14,7 +14,7 @@ const ManageOrderRow = ({ order, setDeleteOrder, refetch }) => {
   } = order;
 
   const setShippedOrder = () => {
-    fetch(`https://radiant-gorge-88164.herokuapp.com/shipped/${_id}`, {
+    fetch(`https://computerx.onrender.com/shipped/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

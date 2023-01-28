@@ -20,7 +20,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["dbUser"], () =>
-    fetch(`https://radiant-gorge-88164.herokuapp.com/user/${user.email}`, {
+    fetch(`https://computerx.onrender.com/user/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -38,7 +38,7 @@ const MyProfile = () => {
   const [editProfile, setEditProfile] = useState(null);
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const { _id, education, location, phone, linkedinUrl } = dbUser;

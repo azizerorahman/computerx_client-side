@@ -12,13 +12,13 @@ const Purchase = () => {
     isLoading,
     refetch,
   } = useQuery(["part"], () =>
-    fetch(`https://radiant-gorge-88164.herokuapp.com/purchase/${id}`).then(
-      (res) => res.json()
+    fetch(`https://computerx.onrender.com/purchase/${id}`).then((res) =>
+      res.json()
     )
   );
 
   if (isLoading) {
-    return <Loading>h-screen</Loading>;
+    return <Loading></Loading>;
   }
 
   const { name, image_url, min_order, quantity, description } = part;
