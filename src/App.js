@@ -17,7 +17,6 @@ import RequireAdmin from "./Pages/LogIn/RequireAdmin";
 import RequireUser from "./Pages/LogIn/RequireUser";
 import RequireAuth from "./Pages/LogIn/RequireAuth";
 import SignUp from "./Pages/LogIn/SignUp";
-import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
@@ -112,7 +111,6 @@ function App() {
           ></Route>
         </Route>
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

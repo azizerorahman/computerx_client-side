@@ -54,11 +54,6 @@ const NavBar = () => {
                   Blogs
                 </Link>
               </li>
-              {/* <li>
-                <Link className="font-semibold" to="/my-portfolio">
-                  My Portfolio
-                </Link>
-              </li> */}
               <li>
                 <Link className="font-semibold" to="/dashboard">
                   Dashboard
@@ -109,11 +104,6 @@ const NavBar = () => {
                   Blogs
                 </Link>
               </li>
-              {/* <li>
-                <Link className="font-semibold" to="/my-portfolio">
-                  My Portfolio
-                </Link>
-              </li> */}
               {user && (
                 <li>
                   <Link className="font-semibold" to="/dashboard">

@@ -101,11 +101,6 @@ const Footer = () => {
               Blogs
             </button>
           </Link>
-          <Link to="/my-portfolio">
-            <button className="btn-link text-base font-medium text-white">
-              My Portfolio
-            </button>
-          </Link>
         </div>
         <div className="w-full mx-auto order-first lg:order-last justify-items-center lg:justify-items-start">
           <span className="footer-title">Newsletter</span>

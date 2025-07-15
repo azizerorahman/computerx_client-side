@@ -6,10 +6,10 @@ const Blogs = () => {
   return (
     <section className="lg:w-11/12 mx-auto lg:px-10 px-5 py-10">
       <h3 className="tracking-widest text-center text-secondary text-xs uppercase mb-3 font-bold">
-        Blogs
+        Tech Insights
       </h3>
       <h2 className="mb-10 font-bold text-neutral text-center lg:text-5xl text-2xl lg:px-20">
-        Questions &#38; Answers!
+        Computer Hardware &#38; Tech Guide
       </h2>
       <div
         tabIndex="0"
@@ -17,36 +17,48 @@ const Blogs = () => {
       >
         <input type="checkbox" className="peer" />
         <div className="collapse-title font-bold text-xl">
-          How will you improve the performance of a React Application?
+          What factors should you consider when choosing computer components?
         </div>
         <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
-            Methods Of improving and optimizing performance of a React
-            Application are:
+            When building or upgrading a computer, several key factors should
+            guide your component selection:
           </p>
           <ul className="pl-6">
             <li className="flex items-center gap-4">
               <FontAwesomeIcon icon={faAngleRight} />
               <p>
-                Using <span className="font-mono">React.Fragment</span> to Avoid
-                Adding Extra Nodes to the DOM. Also by using the short syntax
-                &#62;&#62;&#62;/&#62; for declaring a Fragment.
+                <span className="font-mono font-bold">Compatibility</span> -
+                Ensure all components work together (CPU socket, RAM type,
+                motherboard chipset).
               </p>
             </li>
             <li className="flex items-center gap-4">
               <FontAwesomeIcon icon={faAngleRight} />
               <p>
-                By Virtualizing a large list by using{" "}
-                <span className="font-mono">react-window</span>.
+                <span className="font-mono font-bold">
+                  Performance Requirements
+                </span>{" "}
+                - Match components to your intended use (gaming, productivity,
+                content creation).
               </p>
             </li>
             <li className="flex items-center gap-4">
               <FontAwesomeIcon icon={faAngleRight} />
-              <p>Removing inline functions from all components.</p>
+              <p>
+                <span className="font-mono font-bold">Budget Allocation</span> -
+                Prioritize spending on components that impact your use case
+                most.
+              </p>
             </li>
             <li className="flex items-center gap-4">
               <FontAwesomeIcon icon={faAngleRight} />
-              <p>By using Conditional Rendering.</p>
+              <p>
+                <span className="font-mono font-bold">
+                  Future Upgradability
+                </span>{" "}
+                - Choose platforms with upgrade paths for longevity.
+              </p>
             </li>
           </ul>
         </div>
@@ -57,36 +69,42 @@ const Blogs = () => {
       >
         <input type="checkbox" className="peer" />
         <div className="collapse-title font-bold text-xl">
-          What are the different ways to manage a state in a React application?
+          What are the different types of computer storage solutions?
         </div>
         <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
-            There are mainly four ways to manage a state in a React application.
-            These are:
+            There are several types of storage solutions available for modern
+            computers, each with unique advantages:
           </p>
           <ul className="pl-6">
             <li>
-              1. Local State -{" "}
+              1. SSD (Solid State Drive) -{" "}
               <span className="font-normal">
-                Date is managed in one component in Local State. It is managed
-                by <span className="font-mono font-bold">useState</span> hook.{" "}
+                Fast, reliable storage with no moving parts. Best for operating
+                systems and frequently used applications. Uses{" "}
+                <span className="font-mono font-bold">NAND flash memory</span>.{" "}
               </span>
             </li>
             <li>
-              2. Global State -{" "}
+              2. HDD (Hard Disk Drive) -{" "}
               <span className="font-normal">
-                We can manage data across multiple components by Global State
+                Traditional mechanical storage offering large capacity at lower
+                cost per GB. Ideal for mass storage of files and media.
               </span>
             </li>
             <li>
-              3. Server State -{" "}
-              <span className="from-normal">
-                Here data comes from an external server.
+              3. NVMe SSD -{" "}
+              <span className="font-normal">
+                Ultra-fast storage using PCIe interface. Significantly faster
+                than SATA SSDs for high-performance applications.
               </span>
             </li>
             <li>
-              4. URL State -
-              <span className="font-normal">We get data from URL here.</span>
+              4. External Storage -{" "}
+              <span className="font-normal">
+                Portable USB drives, external HDDs/SSDs for backup and file
+                transfer between systems.
+              </span>
             </li>
           </ul>
         </div>
@@ -97,15 +115,19 @@ const Blogs = () => {
       >
         <input type="checkbox" className="peer" />
         <div className="collapse-title font-bold text-xl">
-          How does prototypical inheritance work?
+          How do CPU and GPU work together in modern computers?
         </div>
         <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
-            In JavaScript, sharing objects properties between them works like a
-            chain, this is prototypical chain. All JavaScript objects follow the
-            chain and inherit properties and methods from a prototype. When we
-            try to read a property from object, and it's missing, JavaScript
-            automatically takes it from the prototype.
+            The CPU (Central Processing Unit) and GPU (Graphics Processing Unit)
+            work in tandem to deliver optimal system performance. The CPU
+            handles general computing tasks and system management, while the GPU
+            specializes in parallel processing for graphics rendering, gaming,
+            and computational workloads like AI and video editing. Modern
+            systems benefit from this division of labor, where the CPU manages
+            system operations and coordinates with the GPU for
+            graphics-intensive tasks, resulting in better overall performance
+            and efficiency.
           </p>
         </div>
       </div>
@@ -115,38 +137,37 @@ const Blogs = () => {
       >
         <input type="checkbox" className="peer" />
         <div className="collapse-title font-bold text-xl">
-          Why you do not set the state directly in React. For example, if you
-          have{" "}
+          Why is proper power supply selection crucial for your PC build? For
+          example, if you have a{" "}
           <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-            const [products, setProducts] = useState([])
+            RTX 4080 GPU + i7-13700K CPU
           </code>
-          . Why you do not set{" "}
+          . Why shouldn't you use a{" "}
           <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-            products = [...]
+            450W PSU
           </code>{" "}
-          instead, you use the{" "}
+          instead, you should use a{" "}
           <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-            setProducts
+            750W+ PSU
           </code>
           ?
         </div>
         <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
-            If I use{" "}
+            If you use a{" "}
             <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-              products = [...]
+              450W PSU
             </code>{" "}
-            it will mutate the state but it will not trigger re-render. On the
-            other hand, if I use{" "}
+            with high-end components, it will not provide adequate power and may
+            cause system instability, crashes, or component damage. On the other
+            hand, a{" "}
             <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-              setProducts
+              750W+ PSU
             </code>{" "}
-            it doesn't mutate the state directly and triggers a re-render. So
-            for this, I use{" "}
-            <code className="font-normal rounded-md py-0.5 px-1.5 bg-[rgba(175,184,193,0.2)]">
-              setProducts
-            </code>{" "}
-            as after using it, the re-render function is triggered.
+            ensures stable power delivery with headroom for peak loads and
+            future upgrades. Proper PSU selection is crucial for system
+            reliability, component longevity, and optimal performance under all
+            operating conditions.
           </p>
         </div>
       </div>
@@ -156,60 +177,67 @@ const Blogs = () => {
       >
         <input type="checkbox" className="peer" />
         <div className="collapse-title font-bold text-xl">
-          You have an array of products. Each product has a name, price,
-          description, etc. How will you implement a search to find products by
-          name?
+          You have an inventory of computer parts. Each part has a name, price,
+          specifications, etc. How will you implement a search to find parts by
+          name or specifications?
         </div>
         <div className="collapse-content lg:text-lg font-medium text-info">
           <p>
-            Here we used JavaScript to solve the problem. If we find products by
-            name, we will be ger array of result products. Here is the code:
+            Here's how we can implement a flexible search function for computer
+            parts inventory. This function searches through part names and
+            specifications to find matching products:
           </p>
           <div className="mockup-code my-3 min-w-full">
             <pre data-prefix="1">
-              <code>
-                const searchProducts = (products, searchText) =&#62; &#123;
-              </code>
+              <code>const searchParts = (parts, searchText) =&#62; &#123;</code>
             </pre>
             <pre data-prefix="2">
               <code className="pl-6">const searchResult = [];</code>
             </pre>
             <pre data-prefix="3">
               <code className="pl-6">
-                for (const product of products) &#123;
+                const query = searchText.toLowerCase();
               </code>
             </pre>
             <pre data-prefix="4">
-              <code className="pl-12">
-                if (product.name.includes(searchText)) &#123;
-              </code>
+              <code className="pl-6">for (const part of parts) &#123;</code>
             </pre>
             <pre data-prefix="5">
-              <code className="pl-20">searchResult.push(product);</code>
+              <code className="pl-12">
+                if (part.name.toLowerCase().includes(query) ||
+              </code>
             </pre>
             <pre data-prefix="6">
-              <code className="pl-12">&#123;</code>
+              <code className="pl-16">
+                part.specifications.toLowerCase().includes(query)) &#123;
+              </code>
             </pre>
             <pre data-prefix="7">
-              <code className="pl-6">&#123;</code>
+              <code className="pl-20">searchResult.push(part);</code>
             </pre>
             <pre data-prefix="8">
-              <code className="pl-6">return searchResult;</code>
+              <code className="pl-12">&#125;</code>
             </pre>
             <pre data-prefix="9">
+              <code className="pl-6">&#125;</code>
+            </pre>
+            <pre data-prefix="10">
+              <code className="pl-6">return searchResult;</code>
+            </pre>
+            <pre data-prefix="11">
               <code>&#125;;</code>
             </pre>
-            <pre data-prefix="10"></pre>
-            <pre data-prefix="11">
-              <code>const results = searchProducts(products, "laptop");</code>
+            <pre data-prefix="12"></pre>
+            <pre data-prefix="13">
+              <code>const results = searchParts(inventory, "RTX 4080");</code>
             </pre>
-            <pre data-prefix="11">
+            <pre data-prefix="14">
               <code>console.log(results);</code>
             </pre>
           </div>
           <p className="lg:text-sm text-xs text-black text-center">
-            *searchProducts &#62; Function Name, products &#62; Array of
-            Products &#38; searchText &#62; Text that used for Search.
+            *searchParts &#62; Function Name, parts &#62; Array of Computer
+            Parts &#38; searchText &#62; Search query for parts or specs.
           </p>
         </div>
       </div>
