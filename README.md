@@ -10,9 +10,9 @@ ComputerX is a cutting-edge B2B platform connecting computer hardware manufactur
 
 ## Important Links
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-2ea44f?style=for-the-badge&logo=vercel)](https://computerx-zero.web.app/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-2ea44f?style=for-the-badge&logo=vercel)](https://computerx-0.netlify.app/)
 [![Client Repository](https://img.shields.io/badge/Client_Code-GitHub-blue?style=for-the-badge&logo=github)](https://github.com/azizerorahman/computerx_client-side)
-[![Server Repository](https://img.shields.io/badge/Server_Code-GitHub-blue?style=for-the-badge&logo=github)](https://github.com/azizurrahman-zero/computerx_server-side)
+[![Server Repository](https://img.shields.io/badge/Server_Code-GitHub-blue?style=for-the-badge&logo=github)](https://github.com/azizerorahman/computerx_server-side)
 
 ## Table of Contents
 
