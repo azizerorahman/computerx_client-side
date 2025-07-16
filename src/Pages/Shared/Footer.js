@@ -20,7 +20,7 @@ const Footer = () => {
         <div className="flex flex-col lg:order-first order-last w-full mx-auto items-center lg:items-start">
           <img className="h-14" src={logoWhite} alt="logo" />
           <div className="lg:pl-2 pl-0 pt-4 flex flex-col items-center lg:items-start">
-            <p className="font-medium text-base">2022 &copy; Computerx.</p>
+            <p className="font-medium text-base">{new Date().getFullYear()} &copy; Computerx.</p>
             <div className="gap-5 flex flex-row mt-3">
               <Link
                 to={{
