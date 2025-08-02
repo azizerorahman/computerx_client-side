@@ -6,7 +6,7 @@ const usePart = () => {
 
   const [part, setPart] = useState([]);
   useEffect(() => {
-    const url = `https://computerx.onrender.com/purchase/${id}`;
+    const url = `https://688e6942001c954b2b6e.syd.appwrite.run/purchase/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));

@@ -47,7 +47,7 @@ const OrderFrom = ({ part, refetch }) => {
       quantity: updatedQuantity,
     };
 
-    fetch("https://computerx.onrender.com/orders", {
+    fetch("https://688e6942001c954b2b6e.syd.appwrite.run/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,7 +65,7 @@ const OrderFrom = ({ part, refetch }) => {
       })
       .then((insertedData) => {
         if (insertedData.insertedId) {
-          fetch(`https://computerx.onrender.com/parts/${_id}`, {
+          fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/parts/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

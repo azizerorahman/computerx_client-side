@@ -25,7 +25,7 @@ const AddReview = () => {
       rating: parseInt(rating),
     };
 
-    fetch("https://computerx.onrender.com/reviews", {
+    fetch("https://688e6942001c954b2b6e.syd.appwrite.run/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

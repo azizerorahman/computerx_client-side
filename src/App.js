@@ -27,7 +27,9 @@ import { useEffect, useState } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("https://computerx.onrender.com/").then(() => setLoading(false));
+    fetch("https://688e6942001c954b2b6e.syd.appwrite.run/").then(() =>
+      setLoading(false)
+    );
   }, []);
 
   // loading spinner

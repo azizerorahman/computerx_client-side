@@ -20,7 +20,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["dbUser"], () =>
-    fetch(`https://computerx.onrender.com/user/${user.email}`, {
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/user/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

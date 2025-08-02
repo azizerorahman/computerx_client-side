@@ -7,7 +7,7 @@ const CancelOrderModal = ({ cancelOrder, setCancelOrder, refetch }) => {
   const { _id, part_name, amount, total_price } = cancelOrder;
 
   const handleDelete = () => {
-    fetch(`https://computerx.onrender.com/orders/${_id}`, {
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/orders/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

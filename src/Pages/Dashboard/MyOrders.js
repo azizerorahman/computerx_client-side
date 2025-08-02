@@ -17,12 +17,15 @@ const MyOrders = () => {
     isLoading,
     refetch,
   } = useQuery(["orders"], () =>
-    fetch(`https://computerx.onrender.com/orders/${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => {
+    fetch(
+      `https://688e6942001c954b2b6e.syd.appwrite.run/orders/${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    ).then((res) => {
       if (res.status === 401 || res.status === 403) {
         signOut(auth);
         localStorage.removeItem("accessToken");

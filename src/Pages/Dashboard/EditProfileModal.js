@@ -20,7 +20,7 @@ const EditProfileModal = ({ setEditProfile, dbUser, refetch }) => {
       phone: data.phone,
       linkedinUrl: data.linkedinUrl,
     };
-    fetch(`https://computerx.onrender.com/update/${_id}`, {
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/update/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -12,14 +12,17 @@ const CheckoutForm = ({ order }) => {
   const { _id, name, total_price, email } = order;
 
   useEffect(() => {
-    fetch("https://computerx.onrender.com/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ total_price }),
-    })
+    fetch(
+      "https://688e6942001c954b2b6e.syd.appwrite.run/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ total_price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data?.clientSecret) {
@@ -70,7 +73,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://computerx.onrender.com/orders/${_id}`, {
+      fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

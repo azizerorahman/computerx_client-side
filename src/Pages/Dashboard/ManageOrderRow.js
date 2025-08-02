@@ -14,7 +14,7 @@ const ManageOrderRow = ({ order, setDeleteOrder, refetch }) => {
   } = order;
 
   const setShippedOrder = () => {
-    fetch(`https://computerx.onrender.com/shipped/${_id}`, {
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/shipped/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

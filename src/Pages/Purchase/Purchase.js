@@ -12,8 +12,8 @@ const Purchase = () => {
     isLoading,
     refetch,
   } = useQuery(["part"], () =>
-    fetch(`https://computerx.onrender.com/purchase/${id}`).then((res) =>
-      res.json()
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/purchase/${id}`).then(
+      (res) => res.json()
     )
   );
 

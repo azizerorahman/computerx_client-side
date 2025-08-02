@@ -12,7 +12,7 @@ const Payment = () => {
   const { id } = useParams();
 
   const { data: order, isLoading } = useQuery(["order", id], () =>
-    fetch(`https://computerx.onrender.com/payment/order/${id}`, {
+    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/payment/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

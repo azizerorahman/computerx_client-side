@@ -15,7 +15,7 @@ const ManagePartsRow = ({ part, refetch }) => {
           label: "Yes",
           onClick: () => {
             // send updated data to server
-            const url = `https://computerx.onrender.com/parts/${id}`;
+            const url = `https://688e6942001c954b2b6e.syd.appwrite.run/parts/${id}`;
             fetch(url, {
               method: "DELETE",
               headers: {

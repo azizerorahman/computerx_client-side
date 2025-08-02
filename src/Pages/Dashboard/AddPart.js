@@ -25,7 +25,7 @@ const AddPart = () => {
     };
 
     // send data to server
-    fetch("https://computerx.onrender.com/parts", {
+    fetch("https://688e6942001c954b2b6e.syd.appwrite.run/parts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
