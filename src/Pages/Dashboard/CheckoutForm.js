@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
 
   useEffect(() => {
     fetch(
-      "https://688e6942001c954b2b6e.syd.appwrite.run/create-payment-intent",
+      "https://68932db7001a18c6e02b.syd.appwrite.run/create-payment-intent",
       {
         method: "POST",
         headers: {
@@ -73,7 +73,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent.id,
       };
-      fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/orders/${_id}`, {
+      fetch(`https://68932db7001a18c6e02b.syd.appwrite.run/orders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

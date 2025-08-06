@@ -20,7 +20,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(["dbUser"], () =>
-    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/user/${user.email}`, {
+    fetch(`https://68932db7001a18c6e02b.syd.appwrite.run/user/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,

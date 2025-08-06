@@ -7,7 +7,7 @@ const DeleteOrderModal = ({ deleteOrder, setDeleteOrder, refetch }) => {
   const { _id, part_name, amount, name } = deleteOrder;
 
   const handleDelete = () => {
-    fetch(`https://688e6942001c954b2b6e.syd.appwrite.run/orders/${_id}`, {
+    fetch(`https://68932db7001a18c6e02b.syd.appwrite.run/orders/${_id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
